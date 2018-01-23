@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="addReader">Добавить читателя</string>
+    <string name="surname">Фамилия *</string>
+    <string name="name">Имя *</string>
+    <string name="patronym">Отчество</string>
+    <string name="reg">Дата регистрации</string>
+    <string name="quit">Дата открепления</string>
+    <string name="save">Сохранить</string>
+    <string name="delete">Удалить</string>
+    <string name="required">* - обязательно к заполнению</string>
+</resources>

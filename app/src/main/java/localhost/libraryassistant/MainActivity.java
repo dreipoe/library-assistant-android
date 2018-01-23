@@ -23,11 +23,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //позволяет запустить редактирование
-        readerList = findViewById(R.id.list);
+        readerList = findViewById(R.id.readerlist);
         readerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), Edit.class);
+                Intent intent = new Intent(getApplicationContext(), ReaderEdit.class);
                 intent.putExtra("id", id);
                 startActivity(intent);
             }
@@ -50,9 +50,8 @@ public class MainActivity extends AppCompatActivity {
         readerList.setAdapter(adapter);
     }
 
-    public void add(View view) {
-        Intent intent = new Intent(this, Edit.class);
-        startActivity(intent);
+    public void addReader(View view) {
+        startActivity(new Intent(this, ReaderEdit.class));
     }
 
     @Override

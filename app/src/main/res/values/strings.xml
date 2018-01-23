@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Library Assistant</string>
+    <string name="app_name" translatable="false">Library Assistant</string>
+    <string name="addReader">Add a Reader</string>
+    <string name="surname">Surname *</string>
+    <string name="name">Name *</string>
+    <string name="patronym">Patronym</string>
+    <string name="reg">Registration Date *</string>
+    <string name="quit">Quit Date</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="required">* - required</string>
 </resources>

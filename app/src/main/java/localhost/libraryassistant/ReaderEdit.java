@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Edit extends AppCompatActivity {
+public class ReaderEdit extends AppCompatActivity {
     Cursor cursor;
 
     EditText surname;
@@ -84,7 +84,6 @@ public class Edit extends AppCompatActivity {
         cv.put(DatabaseMaker.SURNAME, surname.getText().toString());
         cv.put(DatabaseMaker.NAME, name.getText().toString());
         cv.put(DatabaseMaker.REG, reg.getText().toString());
-
         cv.put(DatabaseMaker.PATRONYM, patronym.getText().toString());
         cv.put(DatabaseMaker.QUIT, quit.getText().toString());
 
