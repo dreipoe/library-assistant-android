@@ -57,9 +57,12 @@ public class Edit extends AppCompatActivity {
             cursor.moveToFirst();
             surname.setText(cursor.getString(1));
             name.setText(String.valueOf(cursor.getString(2)));
-            patronym.setText(String.valueOf(cursor.getString(3)));
             reg.setText(String.valueOf(cursor.getString(4)));
-            quit.setText(String.valueOf(cursor.getString(5)));
+
+            //заполнение обнуляемых свойств
+            if (cursor.getString(3) != null) patronym.setText(String.valueOf(cursor.getString(3)));
+            if (cursor.getString(5) != null) quit.setText(String.valueOf(cursor.getString(5)));
+
             cursor.close();
         } else {
             // скрываем кнопку удаления
@@ -70,22 +73,27 @@ public class Edit extends AppCompatActivity {
     public void save(View view){
         ContentValues cv = new ContentValues();
 
+        if (surname.getText().toString().isEmpty() ||
+            name.getText().toString().isEmpty() ||
+            reg.getText().toString().isEmpty()
+        ) {
+            Toast.makeText(this, "Заполните обязательные поля!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         cv.put(DatabaseMaker.SURNAME, surname.getText().toString());
         cv.put(DatabaseMaker.NAME, name.getText().toString());
         cv.put(DatabaseMaker.REG, reg.getText().toString());
+
         cv.put(DatabaseMaker.PATRONYM, patronym.getText().toString());
         cv.put(DatabaseMaker.QUIT, quit.getText().toString());
 
-        try {
-            if (readerId > 0) {
-                db.update(DatabaseMaker.TABLE, cv, "_id=" + String.valueOf(readerId), null);
-            } else {
-                db.insert(DatabaseMaker.TABLE, null, cv);
-            }
-            goHome();
-        } catch (SQLiteException ex) {
-            Toast.makeText(this, "Заполните обязательные поля!", Toast.LENGTH_LONG).show();
-        }
+        if (readerId > 0)
+            db.update(DatabaseMaker.TABLE, cv, "_id=" + String.valueOf(readerId), null);
+        else
+            db.insert(DatabaseMaker.TABLE, null, cv);
+
+        goHome();
     }
 
     public void delete(View view){

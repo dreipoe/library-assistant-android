@@ -6,30 +6,20 @@
     android:layout_height="match_parent"
     tools:context="localhost.libraryassistant.MainActivity">
 
-    <android.support.v4.view.ViewPager
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/pager"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <android.support.v4.view.PagerTabStrip
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="top"/>
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Добавить читателя"
-                    android:onClick="add"
-                    android:textSize="12sp"/>
-                <ListView
-                    android:id="@+id/list"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </LinearLayout>
-    </android.support.v4.view.ViewPager>
+            android:text="Добавить читателя"
+            android:onClick="add"
+            android:textSize="12sp"/>
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

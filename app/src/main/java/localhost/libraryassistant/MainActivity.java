@@ -38,9 +38,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onResume() {
+    public void onResume(){
         super.onResume();
 
+        //ставит адаптер для отображения читателей в списке
         db = databaseMaker.open();
         cursor = db.rawQuery("select * from " + databaseMaker.TABLE, null);
         String[] headers = new String[]{databaseMaker.SURNAME, databaseMaker.REG};
